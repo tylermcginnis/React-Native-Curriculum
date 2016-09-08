@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import { View, StyleSheet, Text } from 'react-native'
-import DrawerTab from './DrawerTab'
 import DrawerHeader from './DrawerHeader'
+import DrawerTab from './DrawerTab'
 
 Drawer.propTypes = {
   activeFooterTab: PropTypes.string.isRequired,
@@ -9,26 +9,26 @@ Drawer.propTypes = {
   close: PropTypes.func.isRequired,
 }
 
-export default function Drawer ({activeFooterTab, onTabSelect, close}) {
+export default function Drawer (props) {
   return (
     <View style={styles.container}>
       <DrawerHeader />
       <DrawerTab
         title='Home'
-        selected={activeFooterTab === 'home'}
+        selected={props.activeFooterTab === 'home'}
         onPress={() => {
-          close()
-          onTabSelect('home')
+          props.onTabSelect('home')
+          props.close()
         }}
-        iconName={'ios-home-outline'} />
+        iconName='ios-home-outline' />
       <DrawerTab
         title='Leaderboard'
-        selected={activeFooterTab === 'leaderboard'}
+        selected={props.activeFooterTab === 'leaderboard'}
         onPress={() => {
-          close()
-          onTabSelect('leaderboard')
+          props.onTabSelect('leaderboard')
+          props.close()
         }}
-        iconName={'ios-trophy-outline'} />
+        iconName='ios-trophy-outline' />
     </View>
   )
 }

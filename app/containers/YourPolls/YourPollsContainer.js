@@ -1,23 +1,17 @@
 import React, { PropTypes, Component } from 'react'
 import { connect } from 'react-redux'
-import { Home } from '~/components'
+import { YourPolls } from '~/components'
 
-class HomeContainer extends Component {
+class YourPollsContainer extends Component {
   static propTypes = {
     openDrawer: PropTypes.func,
     navigator: PropTypes.object.isRequired,
   }
   state = {
   }
-  handleNewPoll = () => {
-    this.props.navigator.push({
-      newPoll: true
-    })
-  }
   render () {
     return (
-      <Home
-        handleNewPoll={this.handleNewPoll}
+      <YourPolls
         openDrawer={this.props.openDrawer} />
     )
   }
@@ -31,4 +25,4 @@ function mapStateToProps () {
 
 export default connect(
   mapStateToProps
-)(HomeContainer)
+)(YourPollsContainer)

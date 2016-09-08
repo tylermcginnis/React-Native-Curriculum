@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react'
-import { DrawerLayoutAndroid, Text, View } from 'react-native'
-import { colors } from '~/styles'
-import IoniconIcon from 'react-native-vector-icons/Ionicons'
+import { View, StyleSheet, Text, DrawerLayoutAndroid } from 'react-native'
+import { HomeContainer, YourPollsContainer } from '~/containers'
 import Drawer from './Drawer'
 
 FooterTabs.propTypes = {
@@ -10,22 +9,22 @@ FooterTabs.propTypes = {
   onTabSelect: PropTypes.func.isRequired,
 }
 
-export default function FooterTabs ({activeFooterTab, onTabSelect, navigator}) {
-  closeDrawer = () => this.drawer.closeDrawer()
-  openDrawer = () => this.drawer.openDrawer()
+export default function FooterTabs (props) {
+  const closeDrawer = () => this.drawer.closeDrawer()
+  const openDrawer = () => this.drawer.openDrawer()
   return (
     <DrawerLayoutAndroid
       ref={(drawer) => this.drawer = drawer}
       drawerWidth={290}
       renderNavigationView={() => (
         <Drawer
-          activeFooterTab={activeFooterTab}
           close={closeDrawer}
-          onTabSelect={onTabSelect} />
+          activeFooterTab={props.activeFooterTab}
+          onTabSelect={props.onTabSelect} />
       )}>
-        {activeFooterTab === 'home'
-          ? <Text>Home</Text>
-          : <Text>Your Polls</Text>}
+        {props.activeFooterTab === 'home'
+          ? <HomeContainer openDrawer={openDrawer} navigator={props.navigator}/>
+          : <YourPollsContainer openDrawer={openDrawer} navigator={props.navigator}/>}
     </DrawerLayoutAndroid>
   )
 }

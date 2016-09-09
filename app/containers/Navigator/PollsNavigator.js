@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react'
 import { Navigator, Platform } from 'react-native'
-import { SplashContainer, FooterTabsContainer, NewPollContainer } from '~/containers'
+import { SplashContainer, FooterTabsContainer, NewPollContainer, PollContainer } from '~/containers'
 
 export default class PollsNavigator extends Component {
   static propTypes = {
@@ -11,6 +11,8 @@ export default class PollsNavigator extends Component {
       return <SplashContainer navigator={navigator} />
     } else if (route.newPoll === true) {
       return <NewPollContainer navigator={navigator} />
+    } else if (route.poll === true) {
+      return <PollContainer navigator={navigator}/>
     }
 
     return <FooterTabsContainer navigator={navigator} />

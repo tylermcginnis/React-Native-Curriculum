@@ -11,9 +11,16 @@ class YourPollsContainer extends Component {
   componentDidMount () {
 
   }
+  handlePollPress = (poll) => {
+    this.props.navigator.push({
+      poll: true,
+      id: poll.id,
+    })
+  }
   render () {
     return (
       <YourPolls
+        onPollPress={this.handlePollPress}
         polls={this.props.polls}
         openDrawer={this.props.openDrawer} />
     )

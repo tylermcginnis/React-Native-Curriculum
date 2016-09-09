@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react'
 import { ListView } from 'react-native'
 import { connect } from 'react-redux'
-import { Home, Poll } from '~/components'
+import { Home, PollPreview } from '~/components'
 
 class HomeContainer extends Component {
   static propTypes = {
@@ -31,9 +31,17 @@ class HomeContainer extends Component {
       newPoll: true
     })
   }
+  handlePollPress = (poll) => {
+    this.props.navigator.push({
+      poll: true,
+      id: poll.id,
+    })
+  }
   renderRow = (data) => {
     return (
-      <Poll key={data.id}
+      <PollPreview
+        key={data.id}
+        onPress={() => this.handlePollPress(data)}
         isOwnPoll={!!this.props.ownPolls[data.id]}
         hasTaken={!!this.props.pollsVotedOn[data.id]}
         data={data}/>

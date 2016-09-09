@@ -4,6 +4,7 @@ import { YourPolls } from '~/components'
 
 class YourPollsContainer extends Component {
   static propTypes = {
+    polls: PropTypes.array.isRequired,
     openDrawer: PropTypes.func,
     navigator: PropTypes.object.isRequired,
   }
@@ -13,14 +14,15 @@ class YourPollsContainer extends Component {
   render () {
     return (
       <YourPolls
+        polls={this.props.polls}
         openDrawer={this.props.openDrawer} />
     )
   }
 }
 
-function mapStateToProps ({polls}) {
+function mapStateToProps ({polls, authentication}) {
   return {
-    polls: true
+    polls: Object.keys(authentication.ownPolls).map((id) => polls[id])
   }
 }
 

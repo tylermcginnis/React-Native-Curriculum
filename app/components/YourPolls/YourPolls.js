@@ -1,13 +1,8 @@
 import React, { PropTypes } from 'react'
 import { View, StyleSheet, Text, Platform } from 'react-native'
-import { PollsNavbar, HamburgerIcon } from '~/components'
+import { PollsNavbar, HamburgerIcon, Poll } from '~/components'
 import { colors, fontSizes } from '~/styles'
 
-function Poll ({data}) {
-  return (
-    <Text>{JSON.stringify(data)}</Text>
-  )
-}
 
 YourPolls.propTypes = {
   polls: PropTypes.array.isRequired,

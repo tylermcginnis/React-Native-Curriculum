@@ -40,11 +40,14 @@ export function addAndHandlePoll (poll) {
       numOfResponses: 0,
     }
 
+    dispatch(setOwnPolls({[id]: {
+      numOfResponses: 0,
+      title: poll.title,
+    }}))
     dispatch(addPoll({
       ...pollPreview,
       options: poll.options
     }))
-    dispatch(setOwnPolls({id}))
 
     return Promise.all([
       ref.child(`pollPreviews/${id}`).set(pollPreview),

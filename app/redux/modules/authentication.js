@@ -133,12 +133,18 @@ export default function authentication (state = initialState, action) {
     case SET_POLLS_VOTED_ON :
       return {
         ...state,
-        pollsVotedOn: {...action.polls}
+        pollsVotedOn: {
+          ...state.polls,
+          ...action.polls
+        }
       }
     case SET_OWN_POLLS :
       return {
         ...state,
-        ownPolls: {...action.ownPolls}
+        ownPolls: {
+          ...state.ownPolls,
+          ...action.ownPolls
+        }
       }
     default :
       return state

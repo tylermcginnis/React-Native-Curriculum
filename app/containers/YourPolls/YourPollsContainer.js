@@ -7,7 +7,8 @@ class YourPollsContainer extends Component {
     openDrawer: PropTypes.func,
     navigator: PropTypes.object.isRequired,
   }
-  state = {
+  componentDidMount () {
+
   }
   render () {
     return (
@@ -17,9 +18,9 @@ class YourPollsContainer extends Component {
   }
 }
 
-function mapStateToProps () {
+function mapStateToProps ({polls}) {
   return {
-
+    polls: true
   }
 }
 

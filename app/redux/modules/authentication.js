@@ -1,5 +1,6 @@
 import { getAccessToken, authWithToken, updateUser, logout } from '~/api/auth'
 import { ref } from '~/config/constants'
+import { fetchAndSetPollsListener } from '~/redux/modules/polls'
 
 const AUTHENTICATING = 'AUTHENTICATING'
 const NOT_AUTHED = 'NOT_AUTHED'
@@ -66,20 +67,23 @@ export function onAuthChange (user) {
       const { uid, displayName, photoURL } = user
       ref.child(`users/${uid}`)
         .once('value')
-        .then((userInfo) => {
+        .then((snapshot) => {
+          const userInfo = snapshot.val()
           return Promise.all(
             userInfo === null
               ? [
                   dispatch(setPollsVotedOn({})),
-                  dispatch(setOwnPolls({}))
+                  dispatch(setOwnPolls({})),
+                  dispatch(fetchAndSetPollsListener()),
                 ]
               : [
                   dispatch(setPollsVotedOn(userInfo.pollsVotedOn || {})),
-                  dispatch(setOwnPolls(userInfo.ownPolls || {}))
+                  dispatch(setOwnPolls(userInfo.ownPolls || {})),
+                  dispatch(fetchAndSetPollsListener()),
               ]
           )
         })
-      .then(() => dispatch(isAuthed(uid, displayName, photoURL)))
+        .then(() => dispatch(isAuthed(uid, displayName, photoURL)))
 
       updateUser({uid, displayName, photoURL})
     }

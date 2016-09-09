@@ -30,7 +30,7 @@ export function addAndHandlePoll (poll) {
   return function (dispatch, getState) {
     const {displayName, photoURL, authedId} = getState().authentication
     const id = ref.child('polls').push().key
-    debugger
+
     const pollPreview = {
       id,
       photoURL,
@@ -48,7 +48,11 @@ export function addAndHandlePoll (poll) {
 
     return Promise.all([
       ref.child(`pollPreviews/${id}`).set(pollPreview),
-      ref.child(`pollData/${id}`).set(poll.options)
+      ref.child(`pollData/${id}`).set(poll.options),
+      ref.child(`users/${authedId}/ownPolls/${id}`).set({
+        title: poll.title,
+        numOfResponses: 0,
+      })
     ])
   }
 }
@@ -56,7 +60,7 @@ export function addAndHandlePoll (poll) {
 export function fetchAndSetPollsListener () {
   return function (dispatch, getState) {
     let listenerSet = false
-    ref.child('polls')
+    ref.child('pollPreviews')
       .on('value', (snapshot) => {
         dispatch(addMultiplePolls(snapshot.val() || {}))
 

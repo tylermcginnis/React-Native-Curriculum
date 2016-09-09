@@ -17,8 +17,8 @@ export default function YourPolls (props) {
         title='Your Polls'/>
       {props.polls.length === 0
         ? <Text style={styles.noData}>Make your first poll! 🚀</Text>
-        : <ScrollView>
-            {props.polls.map((data) => <Poll key={data.id} data={data}/>)}
+        : <ScrollView automaticallyAdjustContentInsets={false}>
+            {props.polls.map((data) => <Poll isOwnPoll={true} key={data.id} data={data}/>)}
           </ScrollView>}
     </View>
   )

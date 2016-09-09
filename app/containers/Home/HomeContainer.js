@@ -6,6 +6,8 @@ import { Home, Poll } from '~/components'
 class HomeContainer extends Component {
   static propTypes = {
     polls: PropTypes.object.isRequired,
+    pollsVotedOn: PropTypes.object.isRequired,
+    ownPolls: PropTypes.object.isRequired,
     listenerSet: PropTypes.bool.isRequired,
     openDrawer: PropTypes.func,
     navigator: PropTypes.object.isRequired,
@@ -30,7 +32,12 @@ class HomeContainer extends Component {
     })
   }
   renderRow = (data) => {
-    return <Poll key={data.id} data={data}/>
+    return (
+      <Poll key={data.id}
+        isOwnPoll={!!this.props.ownPolls[data.id]}
+        hasTaken={!!this.props.pollsVotedOn[data.id]}
+        data={data}/>
+    )
   }
   render () {
     return (
@@ -45,9 +52,11 @@ class HomeContainer extends Component {
   }
 }
 
-function mapStateToProps ({polls}) {
+function mapStateToProps ({polls, authentication}) {
   return {
     polls: polls.polls,
+    ownPolls: authentication.ownPolls,
+    pollsVotedOn: authentication.pollsVotedOn,
     listenerSet: polls.listenerSet,
   }
 }

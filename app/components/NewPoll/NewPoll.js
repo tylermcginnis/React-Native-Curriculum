@@ -1,65 +1,3 @@
-//  class App extends Component {
-
-//     constructor(props) {
-//         super(props);
-
-//         this.state = {
-//             zip: ''
-//         };
-
-//         this.handleSubmitZip = this.handleSubmitZip.bind(this);
-//     }
-
-
-//     handleSubmitZip(zip) {
-//         //e.preventDefault();
-//         this.setState({zip});
-//         console.log("in handleclick ", this.state.zip);
-//     }
-
-//     render() {
-//         return (
-//             <div>
-//                 <Search onSubmitZip={this.handleSubmitZip} />
-//             </div>
-
-//         );
-//     }
-// }
-
-// export default App;
-
-// class Search extends Component {
-
-//     constructor(props) {
-//         super(props);
-//     }
-
-//     // onSubmitZip(e) {
-//     //     e.preventDefault();
-//     //     //this.setState({zip});
-//     //     this.props.onSubmitZip(this.refs.zip.value);
-//     //     console.log('from search ', this.state.zip);
-//     // }
-
-//     render() {
-//         return (
-//             <div>
-//                 <form onSubmit={this.props.onSubmitZip(this.refs.zip.value)}>
-//                     <input placeholder='Zip Code' ref='zip' />
-//                     <button type='submit'>Find Landings!</button>
-//                 </form>
-//             </div>
-//         );
-//     }
-// }
-
-
-
-
-
-
-
 import React, { PropTypes } from 'react'
 import { View, StyleSheet, Text, TextInput, TouchableOpacity } from 'react-native'
 import { PollsNavbar, Close, Submit } from '~/components'
@@ -159,6 +97,7 @@ const styles = StyleSheet.create({
     padding: 10,
     alignSelf: 'center',
     borderRadius: 5,
+    margin: 10,
   },
   btnText: {
     color: colors.white,

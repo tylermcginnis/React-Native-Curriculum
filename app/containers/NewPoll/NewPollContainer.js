@@ -1,25 +1,30 @@
 import React, { PropTypes, Component } from 'react'
 import { View, Text } from 'react-native'
+import { connect } from 'react-redux'
 import { NewPoll } from '~/components'
+import { addAndHandlePoll } from '~/redux/modules/polls'
 
-export default class NewPollContainer extends Component {
+class NewPollContainer extends Component {
   static propTypes = {
     navigator: PropTypes.object.isRequired,
   }
   state = {
     title: '',
     options: [
-      {text: ''},
-      {text: ''},
+      {text: '', count: 0},
+      {text: '', count: 0},
     ],
   }
   handleSubmitPoll = () => {
-    console.log(this.state)
-    this.props.navigator.pop()
+    this.props.dispatch(addAndHandlePoll({
+      title: this.state.title,
+      options: this.state.options,
+    }))
+    .then(this.props.navigator.pop)
   }
   handleAddNewOption = () => {
     this.setState({
-      options: this.state.options.concat([{text: ''}])
+      options: this.state.options.concat([{text: '', count: 0}])
     })
   }
   handleUpdateTitle = (title) => {
@@ -29,7 +34,7 @@ export default class NewPollContainer extends Component {
     this.setState({
       options: [
         ...this.state.options.slice(0, index),
-        {text},
+        {text, count: 0},
         ...this.state.options.slice(index + 1)
       ]
     })
@@ -47,3 +52,5 @@ export default class NewPollContainer extends Component {
     )
   }
 }
+
+export default connect()(NewPollContainer)

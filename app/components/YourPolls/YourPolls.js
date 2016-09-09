@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import { View, StyleSheet, Text, Platform } from 'react-native'
+import { View, StyleSheet, Text, Platform, ScrollView } from 'react-native'
 import { PollsNavbar, HamburgerIcon, Poll } from '~/components'
 import { colors, fontSizes } from '~/styles'
 
@@ -17,7 +17,9 @@ export default function YourPolls (props) {
         title='Your Polls'/>
       {props.polls.length === 0
         ? <Text style={styles.noData}>Make your first poll! 🚀</Text>
-        : props.polls.map((data) => <Poll key={data.id} data={data}/>)}
+        : <ScrollView>
+            {props.polls.map((data) => <Poll key={data.id} data={data}/>)}
+          </ScrollView>}
     </View>
   )
 }

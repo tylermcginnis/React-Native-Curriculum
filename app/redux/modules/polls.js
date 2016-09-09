@@ -77,6 +77,7 @@ export function fetchAndSetPollsListener () {
 
 const initialState = {
   listenerSet: false,
+  polls: {},
 }
 
 export default function polls (state = initialState, action) {
@@ -84,12 +85,15 @@ export default function polls (state = initialState, action) {
     case ADD_POLL :
       return {
         ...state,
-        [action.poll.id]: action.poll,
+        polls: {
+          ...state.polls,
+          [action.poll.id]: action.poll,
+        }
       }
     case ADD_MUTIPLE_POLLS :
       return {
         ...state,
-        ...action.polls,
+        polls: {...action.polls},
       }
     case ADD_LISTENER :
       return {

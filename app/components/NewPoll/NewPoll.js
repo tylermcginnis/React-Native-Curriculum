@@ -68,6 +68,7 @@ export default function NewPoll (props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: colors.white,
   },
   content: {
     margin: 20,

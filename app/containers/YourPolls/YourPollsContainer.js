@@ -22,7 +22,7 @@ class YourPollsContainer extends Component {
 
 function mapStateToProps ({polls, authentication}) {
   return {
-    polls: Object.keys(authentication.ownPolls).map((id) => polls[id])
+    polls: Object.keys(authentication.ownPolls).map((id) => polls.polls[id])
   }
 }
 

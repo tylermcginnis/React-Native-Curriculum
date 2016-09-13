@@ -42,8 +42,8 @@ class HomeContainer extends Component {
       <PollPreview
         key={data.id}
         onPress={() => this.handlePollPress(data)}
-        isOwnPoll={!!this.props.ownPolls[data.id]}
-        hasTaken={!!this.props.pollsVotedOn[data.id]}
+        isOwnPoll={typeof this.props.ownPolls[data.id] !== 'undefined'}
+        hasTaken={typeof this.props.pollsVotedOn[data.id] !== 'undefined'}
         data={data}/>
     )
   }

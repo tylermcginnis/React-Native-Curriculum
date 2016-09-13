@@ -13,7 +13,6 @@ Home.propTypes = {
 }
 
 export default function Home (props) {
-  console.log(props)
   return (
     <View style={styles.container}>
       <PollsNavbar

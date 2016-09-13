@@ -12,7 +12,7 @@ export default class PollsNavigator extends Component {
     } else if (route.newPoll === true) {
       return <NewPollContainer navigator={navigator} />
     } else if (route.poll === true) {
-      return <PollContainer navigator={navigator}/>
+      return <PollContainer navigator={navigator} id={route.id} />
     }
 
     return <FooterTabsContainer navigator={navigator} />

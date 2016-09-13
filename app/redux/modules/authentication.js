@@ -36,7 +36,7 @@ function loggingOut () {
   }
 }
 
-function setPollsVotedOn (polls) {
+export function setPollsVotedOn (polls) {
   return {
     type: SET_POLLS_VOTED_ON,
     polls,
@@ -134,7 +134,7 @@ export default function authentication (state = initialState, action) {
       return {
         ...state,
         pollsVotedOn: {
-          ...state.polls,
+          ...state.pollsVotedOn,
           ...action.polls
         }
       }

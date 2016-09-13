@@ -8,9 +8,6 @@ class YourPollsContainer extends Component {
     openDrawer: PropTypes.func,
     navigator: PropTypes.object.isRequired,
   }
-  componentDidMount () {
-
-  }
   handlePollPress = (poll) => {
     this.props.navigator.push({
       poll: true,

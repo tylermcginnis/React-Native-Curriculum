@@ -1,10 +1,13 @@
 import { ref } from '~/config/constants'
+import { increaseCount, increaseNumOfResponses, addPollVotedOn, increaseUserNumOfResponses } from '~/api/polls'
 
-import { setOwnPolls } from '~/redux/modules/authentication'
+import { setOwnPolls, setPollsVotedOn } from '~/redux/modules/authentication'
 
 const ADD_LISTENER = 'ADD_LISTENER'
-const ADD_MUTIPLE_POLLS = 'ADD_MUTIPLE_POLLS'
+const ADD_MULTIPLE_POLLS = 'ADD_MULTIPLE_POLLS'
 const ADD_POLL = 'ADD_POLL'
+const SET_POLL_OPTIONS = 'SET_POLL_OPTIONS'
+const INCREASE_RESPONSE_COUNT = 'INCREASE_RESPONSE_COUNT'
 
 function addListener () {
   return {
@@ -13,8 +16,9 @@ function addListener () {
 }
 
 function addMultiplePolls (polls) {
+  console.log('HERE')
   return {
-    type: ADD_MUTIPLE_POLLS,
+    type: ADD_MULTIPLE_POLLS,
     polls,
   }
 }
@@ -23,6 +27,22 @@ function addPoll (poll) {
   return {
     type: ADD_POLL,
     poll,
+  }
+}
+
+function setPollOptions (id, options) {
+  return {
+    type: SET_POLL_OPTIONS,
+    id,
+    options,
+  }
+}
+
+function increaseResponseCount (id, index) {
+  return {
+    type: INCREASE_RESPONSE_COUNT,
+    id,
+    index,
   }
 }
 
@@ -65,13 +85,39 @@ export function fetchAndSetPollsListener () {
     let listenerSet = false
     ref.child('pollPreviews')
       .on('value', (snapshot) => {
-        dispatch(addMultiplePolls(snapshot.val() || {}))
+        const previousPollLength = Object.keys(getState().polls.polls).length
+        const newPolls = snapshot.val() || {}
+        if (previousPollLength !== Object.keys(newPolls).length) {
+          console.log('addMultiplePolls')
+          dispatch(addMultiplePolls(snapshot.val() || {}))
+        }
 
         if (listenerSet === false) {
           dispatch(addListener())
           listenerSet = true
         }
       })
+  }
+}
+
+export function fetchAndHandlePollData (id) {
+  return function (dispatch) {
+    return ref.child(`pollData/${id}`)
+      .once('value')
+      .then((snapshot) => dispatch(setPollOptions(id, snapshot.val())))
+  }
+}
+
+export function addAndHandleResponse (id, index, authorId) {
+  return function (dispatch, getState) {
+    dispatch(increaseResponseCount(id, index))
+    dispatch(setPollsVotedOn({[id]: index}))
+    return Promise.all([
+      increaseCount(id, index),
+      increaseNumOfResponses(id),
+      increaseUserNumOfResponses(authorId, id),
+      addPollVotedOn(getState().authentication.authedId, id, index)
+    ])
   }
 }
 
@@ -90,7 +136,7 @@ export default function polls (state = initialState, action) {
           [action.poll.id]: action.poll,
         }
       }
-    case ADD_MUTIPLE_POLLS :
+    case ADD_MULTIPLE_POLLS :
       return {
         ...state,
         polls: {...action.polls},
@@ -99,6 +145,33 @@ export default function polls (state = initialState, action) {
       return {
         ...state,
         listenerSet: true,
+      }
+    case SET_POLL_OPTIONS :
+      return {
+        ...state,
+        polls: {
+          ...state.polls,
+          [action.id]: {
+            ...state.polls[action.id],
+            options: action.options,
+          }
+        }
+      }
+    case INCREASE_RESPONSE_COUNT :
+      return {
+        ...state,
+        polls: {
+          ...state.polls,
+          [action.id]: {
+            ...state.polls[action.id],
+            numOfResponses: state.polls[action.id].numOfResponses + 1,
+            options: state.polls[action.id].options.map((option, index) => {
+              return index === action.index
+                ? {text: option.text, count: option.count + 1}
+                : option
+            })
+          }
+        }
       }
     default :
       return state

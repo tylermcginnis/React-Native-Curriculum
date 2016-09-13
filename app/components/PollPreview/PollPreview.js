@@ -38,7 +38,6 @@ export default function Poll ({data, hasTaken, isOwnPoll, onPress}) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     margin: 15,
     paddingLeft: 15,
     paddingRight: 15,

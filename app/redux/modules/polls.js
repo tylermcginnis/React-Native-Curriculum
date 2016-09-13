@@ -16,7 +16,6 @@ function addListener () {
 }
 
 function addMultiplePolls (polls) {
-  console.log('HERE')
   return {
     type: ADD_MULTIPLE_POLLS,
     polls,
@@ -88,7 +87,6 @@ export function fetchAndSetPollsListener () {
         const previousPollLength = Object.keys(getState().polls.polls).length
         const newPolls = snapshot.val() || {}
         if (previousPollLength !== Object.keys(newPolls).length) {
-          console.log('addMultiplePolls')
           dispatch(addMultiplePolls(snapshot.val() || {}))
         }
 

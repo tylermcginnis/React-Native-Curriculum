@@ -40,6 +40,14 @@ Let's have Navigator control our routes now.
  * Have configureScene render its default transitions for both android and iOS.
  * Create an AppContainer component which will be the main root file of your app and have it render your Navigator you just created.
 
+## Step 4: /PreSplash
+Let's create our PreSplash view that is going to be shown as the app checks that we're authenticated.
+
+ * First create some universal styles for your app. Create a 'app/styles/index.js' file and export two objects from it, 'colors' and 'fontSizes'. Add appropriate properties to each.
+ * Find a logo for your App and save it under 'app/images/logo.png'. You can use the one I use located [here](https://github.com/ReactjsProgram/React-Native-Curriculum/blob/progress/app/images/logo.png)
+ * Create a PreSplash component which is going to just render your logo. Add some animations to it to give the user some feedback.
+ * In AppContainer add a default prop of 'isAuthenticating' and set it to true. Now instead of rendering your Navigator, only render your Navigator if 'this.props.isAuthenticating' isn't true. If it is true, then render your PreSplash component you just created.
+
 ## Congrats!
 If you got through this, great job. If you're reading this and you've made it this far, be proud. This was a pretty advanced project. Take a look at my code and compare to what we did differently.
 

@@ -48,6 +48,13 @@ Let's create our PreSplash view that is going to be shown as the app checks that
  * Create a PreSplash component which is going to just render your logo. Add some animations to it to give the user some feedback.
  * In AppContainer add a default prop of 'isAuthenticating' and set it to true. Now instead of rendering your Navigator, only render your Navigator if 'this.props.isAuthenticating' isn't true. If it is true, then render your PreSplash component you just created.
 
+## Step 5: /Splash
+Now create your Splash view which will render when the user isn't authenticating and they're not authed.
+
+ * Update your Splash view so it renders some beautiful UI as well as a LoginButton from react-native-fbsdk and pass it a prop of onLoginFinished which accepts either 'error' or 'result'.
+ * Remove the 'isAuthenticating' default prop from AppContainer.
+ * Pass down a 'isAuthed' prop initially set to false to your Navigator then render your Splash view only if 'isAuthed' is false, otherwise render a <Text> component.
+
 ## Congrats!
 If you got through this, great job. If you're reading this and you've made it this far, be proud. This was a pretty advanced project. Take a look at my code and compare to what we did differently.
 

@@ -22,10 +22,10 @@ export default function Drawer (props) {
         }}
         iconName='ios-home-outline' />
       <DrawerTab
-        title='Leaderboard'
-        selected={props.activeFooterTab === 'leaderboard'}
+        title='Your Polls'
+        selected={props.activeFooterTab === 'yourPolls'}
         onPress={() => {
-          props.onTabSelect('leaderboard')
+          props.onTabSelect('yourPolls')
           props.close()
         }}
         iconName='ios-trophy-outline' />

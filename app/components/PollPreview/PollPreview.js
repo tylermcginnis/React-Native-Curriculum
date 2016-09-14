@@ -62,6 +62,8 @@ const styles = StyleSheet.create({
   title: {
     color: colors.primary,
     fontSize: fontSizes.primary,
+    flexWrap: 'wrap',
+    flex: 1,
   },
   txt: {
     color: colors.secondary,

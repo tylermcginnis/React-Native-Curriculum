@@ -32,6 +32,14 @@ We're going to use Facebook to Authenticate. Let's install the Facebook SDK into
  * Follow [this guide](https://medium.freecodecamp.com/installing-the-facebook-sdk-into-a-react-native-android-and-ios-app-69439bd97a99#.1njr8v2ye)
  * Add a LoginButton from react-native-fbsdk to your index.js view to verify you properly installed the SDK.
 
+##Step 3: /FirstRoute
+Let's have Navigator control our routes now.
+
+ * Create a Splash view which just renders "Splash" for now.
+ * Create a PollsNavigator component which is going to handle routing and route transitions. Have renderScene return the Splash view you just created.
+ * Have configureScene render its default transitions for both android and iOS.
+ * Create an AppContainer component which will be the main root file of your app and have it render your Navigator you just created.
+
 ## Congrats!
 If you got through this, great job. If you're reading this and you've made it this far, be proud. This was a pretty advanced project. Take a look at my code and compare to what we did differently.
 

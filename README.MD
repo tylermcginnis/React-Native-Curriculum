@@ -16,7 +16,7 @@ The goal here is to give you just enough guidance for you to struggle without dr
 ##Step 0: Examine the Final Product
  * You'll be building the app in the GIF above. Get familiar with it's functionality, the different route transitions, how it differs on iOS and Android.
 
-##Step 1: Hello World
+##Step 1: /HelloWorld
 Before we dive into building the app, let's just make sure we have a Hello World app working on both Android and iOS.
 
  * Create a new project using react-native init

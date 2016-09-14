@@ -55,6 +55,17 @@ Now create your Splash view which will render when the user isn't authenticating
  * Remove the 'isAuthenticating' default prop from AppContainer.
  * Pass down a 'isAuthed' prop initially set to false to your Navigator then render your Splash view only if 'isAuthed' is false, otherwise render a <Text> component.
 
+## Step 6: /AddRedux
+Now we need to actually pass an 'isAuthenticating' and 'isAuthed' prop down to our AppContainer. Both of those properties will live in Redux.
+
+ * npm install --save react-redux redux redux-thunk
+ * Create a Redux 'authentication' module with has an initial state of ```isAuthed: false, isAuthenticating: false, authedId: ''``` as well as a reducer which just returns the default case of 'state'
+ * In `app/index.js` create a store with all of your reducers as well as the Redux thunk middleware.
+ * Wrap '<AppContainer />' inside of Provider passing provider your store as a prop.
+ * Connect AppContainer to Redux and pass down 'isAuthenticating' and 'isAuthed' to AppContainer as props from the Redux authentication module.
+ * Pass 'isAuthed' down to the 'PollsNavigator' component.
+ * Play around with changing the default values of isAuthed and isAuthenticating in your Redux module to verify the proper views are being rendered on each change.
+
 ## Congrats!
 If you got through this, great job. If you're reading this and you've made it this far, be proud. This was a pretty advanced project. Take a look at my code and compare to what we did differently.
 

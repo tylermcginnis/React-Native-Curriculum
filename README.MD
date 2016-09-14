@@ -25,6 +25,13 @@ Before we dive into building the app, let's just make sure we have a Hello World
  * Have index.android.js and index.ios.js render your 'app/index.js' file
  * Verify your app works on both Android and iOS (if you're building for both platforms)
 
+##Step 2: /FacebookSDK
+We're going to use Facebook to Authenticate. Let's install the Facebook SDK into our React Native app so we can do that.
+
+ * npm install --save react-native-fbsdk
+ * Follow [this guide](https://medium.freecodecamp.com/installing-the-facebook-sdk-into-a-react-native-android-and-ios-app-69439bd97a99#.1njr8v2ye)
+ * Add a LoginButton from react-native-fbsdk to your index.js view to verify you properly installed the SDK.
+
 ## Congrats!
 If you got through this, great job. If you're reading this and you've made it this far, be proud. This was a pretty advanced project. Take a look at my code and compare to what we did differently.
 

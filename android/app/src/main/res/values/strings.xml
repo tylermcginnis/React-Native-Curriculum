@@ -1,3 +1,5 @@
 <resources>
+
     <string name="app_name">Polls</string>
+    <string name="facebook_app_id">1257907870909981</string>
 </resources>

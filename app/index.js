@@ -5,6 +5,7 @@
  */
 
 import React, { Component } from 'react';
+import { LoginButton } from 'react-native-fbsdk'
 import {
   AppRegistry,
   StyleSheet,
@@ -26,6 +27,8 @@ export default class Polls extends Component {
           Press Cmd+R to reload,{'\n'}
           Cmd+D or shake for dev menu
         </Text>
+        <LoginButton
+          onLoginFinished={() => ({})}/>
       </View>
     );
   }

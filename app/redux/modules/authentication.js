@@ -1,5 +1,5 @@
 const initialState = {
-  isAuthed: false,
+  isAuthed: true,
   isAuthenticating: false,
   authedId: '',
 }

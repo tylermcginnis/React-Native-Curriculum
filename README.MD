@@ -66,6 +66,21 @@ Now we need to actually pass an 'isAuthenticating' and 'isAuthed' prop down to o
  * Pass 'isAuthed' down to the 'PollsNavigator' component.
  * Play around with changing the default values of isAuthed and isAuthenticating in your Redux module to verify the proper views are being rendered on each change.
 
+## Step 7: /FooterTabs
+Now let's build out the UI for the main way to navigate throughout our app. On iOS this will be some Footer tabs on Android we'll have a drawer.
+
+ * Before we add navigation, we need Views to navigate to. Create a Home view as well as a YourPolls view. These will be our two main views in our app.
+ * Now we'll use React Native Vector Icons in order to render the icons in our footer, ```npm install --save react-native-vector-icons```
+ * ```react-native link```
+ * We'll keep the active footer tab state in a Redux module. Create an 'activeFooterTab' Redux module which handles that state as well as an action creator for changing the active footer.
+ * Create a FooterTabs component for iOS which accepts the active footer tab and a onTabSelect function which changes the tab. Render either the Home view or the YourPolls view depending on the selected tab.
+ * Create a container component (if you're following that pattern) which connects to FooterTabs and passes it the active footer tab from Redux as well as a function to change the active footer tab.
+ * In PollsNavigator return FooterTabsContainer as the default return instead of the Text component we returned previously.
+ * At this point transitioning between tabs on iOS should be working. Now, using 'DrawerLayoutAndroid', create a Drawer layout for Android.
+ * Right now your App should look like this
+
+<img src="http://www.reactjsprogram.com/images/react-native-footer-tabs.png" width="400">
+
 ## Congrats!
 If you got through this, great job. If you're reading this and you've made it this far, be proud. This was a pretty advanced project. Take a look at my code and compare to what we did differently.
 

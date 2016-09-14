@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react'
 import { Navigator, Platform, Text } from 'react-native'
-import { SplashContainer } from '~/containers'
+import { SplashContainer, FooterTabsContainer } from '~/containers'
 
 export default class PollsNavigator extends Component {
   renderScene = (route, navigator) => {
@@ -8,7 +8,7 @@ export default class PollsNavigator extends Component {
       return <SplashContainer navigator={navigator} />
     }
 
-    return <Text>Authed!</Text>
+    return <FooterTabsContainer navigator={navigator} />
   }
   configureScene = (route) => {
     if (Platform.OS === 'android') {

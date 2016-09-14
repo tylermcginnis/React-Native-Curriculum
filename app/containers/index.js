@@ -1,3 +1,6 @@
 export AppContainer from './App/AppContainer'
 export PollsNavigator from './Navigator/PollsNavigator'
 export SplashContainer from './Splash/SplashContainer'
+export HomeContainer from './Home/HomeContainer'
+export YourPollsContainer from './YourPolls/YourPollsContainer'
+export FooterTabsContainer from './FooterTabs/FooterTabsContainer'

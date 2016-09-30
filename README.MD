@@ -124,6 +124,15 @@ Now we're going to add the UI as well as the functionality to create a new poll.
  * npm install --save remote-redux-devtools
  * Add Redux DevTools to your app so you can inspect the state of your Redux store inside of Chrome.
 
+## 13: /HomeView
+Now we need to build out the UI for our Home view. Because we already fetched the polls in step 11 (using fetchAndSetPollsListener), this should mostly be a UI step.
+
+ * Create a component called `PollPreview` which is going to render the UI for each individual poll. Keep in mind this is going to be clickable and will (eventually) take you to the individual poll.
+ * Render the list of Polls using React Native's `ListView` component.
+ * Once finished, your Home view should look like this,
+
+<img src="http://www.reactjsprogram.com/images/react-native-home.png" width="400">
+
 ## Congrats!
 If you got through this, great job. If you're reading this and you've made it this far, be proud. This was a pretty advanced project. Take a look at my code and compare to what we did differently.
 

@@ -146,6 +146,9 @@ Now we need to create the individual Poll view which is where we'll either be ab
 
 <img src="http://www.reactjsprogram.com/images/react-native-poll.png" width="400">
 
+## 16: /DrawerHeader
+The very last step is a small one. If you'll remember when we built the UI for our Drawer on Android we left our DrawerHeader component in its most basic form. Now go ahead and update that UI to however you'd like. I prefer to show the user's name and avatar.
+
 ## Congrats!
 If you got through this, great job. If you're reading this and you've made it this far, be proud. This was a pretty advanced project. Take a look at my code and compare to what we did differently.
 

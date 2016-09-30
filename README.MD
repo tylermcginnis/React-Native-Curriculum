@@ -81,6 +81,71 @@ Now let's build out the UI for the main way to navigate throughout our app. On i
 
 <img src="http://www.reactjsprogram.com/images/react-native-footer-tabs.png" width="400">
 
+## Step 8: /Navbars
+Now let's create our navbar as well as our different navbar icons that will be present depending on which view we're on.
+
+ * npm install --save react-native-navbar
+ * Create your Navbar component which will accept a required title prop, an optional rightButton prop which is a React element, and an optional leftButton prop which is also a React element.
+ * Create a HamburgerIcon component
+ * Create a NewPollIcon component
+ * Add a Navbar to both your Home view as well as your YourPolls view.
+ * Add functionality to your hamburger icon component to navigate between Home and YourPolls on Android
+ * Create the skeleton for your New Post view and have it rendered when someone clicks on the "New Poll" icon on the home view.
+ * Add a Navbar with the appropriate Icons and functionality to your New Post view.
+ * At this point you should be able to click on the New Poll icon on the Home view and you should get a new skeleton view which you can then "Close" or click "Submit"(which currently does nothing)
+
+## Step 9: /Schemas
+As always, I like to create the schemas for Firebase and Redux before I actually start implementing them. This way, I don't run into surprises down the line.
+
+ * Create a schemas.js file and mock out both your Firebase schema as well as your Redux schema so you can refer to this file later on. To do this you'll have to think hard about your application and what state you will and won't need.
+
+## Step 10: /Auth
+Now before we get too far into our app, let's tie in authentication so when our user auths, we'll save that into Firebase.
+
+ * npm install --save firebase
+ * Create a `constants.js` file where you will initial your firebase app. Also export three properties from this file, ref, firebaseAuth, and facebookProvider just as we did in the videos.
+ * Create an auth.js file which will be responsible for dealing with Firebase authentication.
+ * Create and fill out these four functions, getAccessToken, authWithToken, updateUser, and logout. This pattern is the same pattern we did in the video.
+ * Inside of redux/modules/authentication.js, create a onAuthChange thunk. For now it will be responsible for updating the user in Firebase as well as handling the local users state (isAuthed, isAuthenticating, authedId) in Redux.
+ * Once onAuthChange (with the appropriate constants, action creators, and reducer) is finished, head over to AppContainer and when the component mounts, use `firebaseAuth.onAuthStateChanged` to dispatch your `onAuthChange` function whenever the firebase user state changes.
+ * Now create a handleAuthWithFirebase thunk inside of authentication.js which is going to first, inform our authentication state that the user is currently authenticating, second, call `getAccessToken` and then call `authWith` once we have the access token.
+ * Last step should be to dispatch our `handleAuthWithFirebase` function once we login, ie, inside of the `handleLoginFinished` function in our `SplashContainer` component.
+
+## Step 11: /NewPoll
+Now we're going to add the UI as well as the functionality to create a new poll.
+
+ * Build out the UI for your New Poll view. Refer to the finished GIF above if you need inspiration.
+ * Now when the user submits the new poll, persist it to Redux as well as Firebase. Refer to your schemas.js file in Step 9 if you need to.
+ * Inside of polls.js create a `fetchAndSetPollsListener` function which is responsible for fetching the users polls and setting up a listener to Firebase to update Redux whenever a poll changes.
+ * Update your `onAuthChange` function to set the users polls in Redux but also use the `fetchAndSetPollsListener` function you just created to set up that listener to Firebase.
+
+## Step 12: /Devtools
+
+ * npm install --save remote-redux-devtools
+ * Add Redux DevTools to your app so you can inspect the state of your Redux store inside of Chrome.
+
+## 13: /HomeView
+Now we need to build out the UI for our Home view. Because we already fetched the polls in step 11 (using fetchAndSetPollsListener), this should mostly be a UI step.
+
+ * Create a component called `PollPreview` which is going to render the UI for each individual poll. Keep in mind this is going to be clickable and will (eventually) take you to the individual poll.
+ * Render the list of Polls using React Native's `ListView` component.
+ * Once finished, your Home view should look like this,
+
+<img src="http://www.reactjsprogram.com/images/react-native-home.png" width="400">
+
+## 14: /YourPolls
+Now let's finished the UI for the "Your Polls" view. Again since we already have the data needed, this will mostly be UI changes.
+
+ * Build out the "Your Polls" view to generate a list of only the authenticated user's polls. You should be able to re-use the `PollPreview` component we implemented earlier.
+ * Once finished, your Home view should look like this,
+
+<img src="http://www.reactjsprogram.com/images/react-native-your-polls.png" width="400">
+
+## 15: /Poll
+Now we need to create the individual Poll view which is where we'll either be able to see the results of the poll or vote on it if we haven't already taken it. I'm going to leave this step empty on purpose to challenge you. Here's a picture of the final product. As always if you get stuck, check out my steps in the "/Poll" branch.
+
+<img src="http://www.reactjsprogram.com/images/react-native-poll.png" width="400">
+
 ## Congrats!
 If you got through this, great job. If you're reading this and you've made it this far, be proud. This was a pretty advanced project. Take a look at my code and compare to what we did differently.
 

@@ -115,7 +115,9 @@ Now before we get too far into our app, let's tie in authentication so when our 
 Now we're going to add the UI as well as the functionality to create a new poll.
 
  * Build out the UI for your New Poll view. Refer to the finished GIF above if you need inspiration.
- * Now when the user submits the new poll, persist it to Redux as well as Firebase. Refer to your schemas.js file in the previous step if you need to.
+ * Now when the user submits the new poll, persist it to Redux as well as Firebase. Refer to your schemas.js file in Step 9 if you need to.
+ * Inside of polls.js create a `fetchAndSetPollsListener` function which is responsible for fetching the users polls and setting up a listener to Firebase to update Redux whenever a poll changes.
+ * Update your `onAuthChange` function to set the users polls in Redux but also use the `fetchAndSetPollsListener` function you just created to set up that listener to Firebase.
 
 ## Congrats!
 If you got through this, great job. If you're reading this and you've made it this far, be proud. This was a pretty advanced project. Take a look at my code and compare to what we did differently.

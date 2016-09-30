@@ -1,15 +1,18 @@
 import { getAccessToken, authWithToken, updateUser, logout } from '~/api/auth'
+import { ref } from '~/config/constants'
+import { fetchAndSetPollsListener } from '~/redux/modules/polls'
 
+const AUTHENTICATING = 'AUTHENTICATING'
 const NOT_AUTHED = 'NOT_AUTHED'
 const IS_AUTHED = 'IS_AUTHED'
-const AUTHENTICATING = 'AUTHENTICATING'
+const SET_POLLS_VOTED_ON = 'SET_POLLS_VOTED_ON'
+const SET_OWN_POLLS = 'SET_OWN_POLLS'
 
 function authenticating () {
   return {
     type: AUTHENTICATING,
   }
 }
-
 
 function notAuthed () {
   return {
@@ -23,6 +26,20 @@ function isAuthed (uid, displayName, photoURL) {
     uid,
     displayName,
     photoURL,
+  }
+}
+
+export function setPollsVotedOn (polls) {
+  return {
+    type: SET_POLLS_VOTED_ON,
+    polls,
+  }
+}
+
+export function setOwnPolls (ownPolls) {
+  return {
+    type: SET_OWN_POLLS,
+    ownPolls,
   }
 }
 
@@ -41,16 +58,46 @@ export function onAuthChange (user) {
       dispatch(notAuthed())
     } else {
       const { uid, displayName, photoURL } = user
-      dispatch(isAuthed(uid, displayName, photoURL))
+      ref.child(`users/${uid}`)
+        .once('value')
+        .then((snapshot) => {
+          const userInfo = snapshot.val()
+          return Promise.all(
+            userInfo === null
+              ? [
+                  dispatch(setPollsVotedOn({})),
+                  dispatch(setOwnPolls({})),
+                  dispatch(fetchAndSetPollsListener()),
+                ]
+              : [
+                  dispatch(setPollsVotedOn(userInfo.pollsVotedOn || {})),
+                  dispatch(setOwnPolls(userInfo.ownPolls || {})),
+                  dispatch(fetchAndSetPollsListener()),
+              ]
+          )
+        })
+        .then(() => dispatch(isAuthed(uid, displayName, photoURL)))
+
       updateUser({uid, displayName, photoURL})
     }
   }
 }
 
+export function handleUnauth () {
+  return function (dispatch) {
+    logout()
+    dispatch(loggingOut())
+  }
+}
+
 const initialState = {
-  isAuthed: true,
-  isAuthenticating: false,
+  isAuthed: false,
+  isAuthenticating: true,
   authedId: '',
+  displayName: '',
+  photoURL: '',
+  pollsVotedOn: {},
+  ownPolls: {},
 }
 
 export default function authentication (state = initialState, action) {
@@ -75,6 +122,22 @@ export default function authentication (state = initialState, action) {
         authedId: action.uid,
         displayName: action.displayName,
         photoURL: action.photoURL,
+      }
+    case SET_POLLS_VOTED_ON :
+      return {
+        ...state,
+        pollsVotedOn: {
+          ...state.pollsVotedOn,
+          ...action.polls
+        }
+      }
+    case SET_OWN_POLLS :
+      return {
+        ...state,
+        ownPolls: {
+          ...state.ownPolls,
+          ...action.ownPolls
+        }
       }
     default :
       return state

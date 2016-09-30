@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react'
 import { Navigator, Platform, Text } from 'react-native'
-import { SplashContainer, FooterTabsContainer, NewPollContainer } from '~/containers'
+import { SplashContainer, FooterTabsContainer, NewPollContainer, PollContainer } from '~/containers'
 
 export default class PollsNavigator extends Component {
   renderScene = (route, navigator) => {
@@ -8,7 +8,10 @@ export default class PollsNavigator extends Component {
       return <SplashContainer navigator={navigator} />
     } else if (route.newPoll === true) {
       return <NewPollContainer navigator={navigator} />
+    } else if (route.poll === true) {
+      return <PollContainer navigator={navigator} id={route.id} />
     }
+
 
     return <FooterTabsContainer navigator={navigator} />
   }

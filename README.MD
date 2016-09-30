@@ -141,7 +141,10 @@ Now let's finished the UI for the "Your Polls" view. Again since we already have
 
 <img src="http://www.reactjsprogram.com/images/react-native-your-polls.png" width="400">
 
+## 15: /Poll
+Now we need to create the individual Poll view which is where we'll either be able to see the results of the poll or vote on it if we haven't already taken it. I'm going to leave this step empty on purpose to challenge you. Here's a picture of the final product. As always if you get stuck, check out my steps in the "/Poll" branch.
 
+<img src="http://www.reactjsprogram.com/images/react-native-poll.png" width="400">
 
 ## Congrats!
 If you got through this, great job. If you're reading this and you've made it this far, be proud. This was a pretty advanced project. Take a look at my code and compare to what we did differently.

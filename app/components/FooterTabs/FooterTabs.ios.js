@@ -12,7 +12,7 @@ FooterTabs.propTypes = {
 
 export default function FooterTabs (props) {
   return (
-    <TabBarIOS tintColor={colors.active}>
+    <TabBarIOS tintColor={colors.active} barTintColor={colors.tabPrimary}>
       <Icon.TabBarItem
         iconSize={35}
         iconName='ios-home-outline'

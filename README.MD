@@ -133,6 +133,16 @@ Now we need to build out the UI for our Home view. Because we already fetched th
 
 <img src="http://www.reactjsprogram.com/images/react-native-home.png" width="400">
 
+## 14: /YourPolls
+Now let's finished the UI for the "Your Polls" view. Again since we already have the data needed, this will mostly be UI changes.
+
+ * Build out the "Your Polls" view to generate a list of only the authenticated user's polls. You should be able to re-use the `PollPreview` component we implemented earlier.
+ * Once finished, your Home view should look like this,
+
+<img src="http://www.reactjsprogram.com/images/react-native-your-polls.png" width="400">
+
+
+
 ## Congrats!
 If you got through this, great job. If you're reading this and you've made it this far, be proud. This was a pretty advanced project. Take a look at my code and compare to what we did differently.
 

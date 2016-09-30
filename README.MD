@@ -119,6 +119,11 @@ Now we're going to add the UI as well as the functionality to create a new poll.
  * Inside of polls.js create a `fetchAndSetPollsListener` function which is responsible for fetching the users polls and setting up a listener to Firebase to update Redux whenever a poll changes.
  * Update your `onAuthChange` function to set the users polls in Redux but also use the `fetchAndSetPollsListener` function you just created to set up that listener to Firebase.
 
+## Step 12: /Devtools
+
+ * npm install --save remote-redux-devtools
+ * Add Redux DevTools to your app so you can inspect the state of your Redux store inside of Chrome.
+
 ## Congrats!
 If you got through this, great job. If you're reading this and you've made it this far, be proud. This was a pretty advanced project. Take a look at my code and compare to what we did differently.
 

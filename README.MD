@@ -81,6 +81,19 @@ Now let's build out the UI for the main way to navigate throughout our app. On i
 
 <img src="http://www.reactjsprogram.com/images/react-native-footer-tabs.png" width="400">
 
+## Step 8: /Navbars
+Now let's create our navbar as well as our different navbar icons that will be present depending on which view we're on.
+
+ * npm install --save react-native-navbar
+ * Create your Navbar component which will accept a required title prop, an optional rightButton prop which is a React element, and an optional leftButton prop which is also a React element.
+ * Create a HamburgerIcon component
+ * Create a NewPollIcon component
+ * Add a Navbar to both your Home view as well as your YourPolls view.
+ * Add functionality to your hamburger icon component to navigate between Home and YourPolls on Android
+ * Create the skeleton for your New Post view and have it rendered when someone clicks on the "New Poll" icon on the home view.
+ * Add a Navbar with the appropriate Icons and functionality to your New Post view.
+ * At this point you should be able to click on the New Poll icon on the Home view and you should get a new skeleton view which you can then "Close" or click "Submit"(which currently does nothing)
+
 ## Congrats!
 If you got through this, great job. If you're reading this and you've made it this far, be proud. This was a pretty advanced project. Take a look at my code and compare to what we did differently.
 

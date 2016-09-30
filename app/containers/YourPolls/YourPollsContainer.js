@@ -8,7 +8,8 @@ export default class YourPollsContainer extends Component {
   }
   render () {
     return (
-      <YourPolls />
+      <YourPolls
+        openDrawer={this.props.openDrawer} />
     )
   }
 }

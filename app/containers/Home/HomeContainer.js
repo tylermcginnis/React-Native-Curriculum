@@ -6,9 +6,16 @@ export default class HomeContainer extends Component {
     openDrawer: PropTypes.func,
     navigator: PropTypes.object.isRequired,
   }
+  handleNewPoll = () => {
+    this.props.navigator.push({
+      newPoll: true
+    })
+  }
   render () {
     return (
-      <Home />
+      <Home
+        onNewPoll={this.handleNewPoll}
+        openDrawer={this.props.openDrawer} />
     )
   }
 }

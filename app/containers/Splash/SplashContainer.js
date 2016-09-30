@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
 import { Splash } from '~/components'
+import { connect } from 'react-redux'
+import { handleAuthWithFirebase } from '~/redux/modules/authentication'
 
-export default class SplashContainer extends Component {
+class SplashContainer extends Component {
   handleLoginFinished = (error, result) => {
     if (error) {
       console.warn('Error in handleLoginFinished: ', error)
     } else if (result.isCancelled === true) {
       console.log('Auth cancelled')
     } else {
-      console.log('Auth Successful')
+      this.props.dispatch(handleAuthWithFirebase())
     }
   }
   render () {
@@ -17,3 +19,5 @@ export default class SplashContainer extends Component {
     )
   }
 }
+
+export default connect()(SplashContainer)

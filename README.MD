@@ -99,11 +99,23 @@ As always, I like to create the schemas for Firebase and Redux before I actually
 
  * Create a schemas.js file and mock out both your Firebase schema as well as your Redux schema so you can refer to this file later on. To do this you'll have to think hard about your application and what state you will and won't need.
 
-## Step 9: /NewPoll
+## Step 10: /Auth
+Now before we get too far into our app, let's tie in authentication so when our user auths, we'll save that into Firebase.
+
+ * npm install --save firebase
+ * Create a `constants.js` file where you will initial your firebase app. Also export three properties from this file, ref, firebaseAuth, and facebookProvider just as we did in the videos.
+ * Create an auth.js file which will be responsible for dealing with Firebase authentication.
+ * Create and fill out these four functions, getAccessToken, authWithToken, updateUser, and logout. This pattern is the same pattern we did in the video.
+ * Inside of redux/modules/authentication.js, create a onAuthChange thunk. For now it will be responsible for updating the user in Firebase as well as handling the local users state (isAuthed, isAuthenticating, authedId) in Redux.
+ * Once onAuthChange (with the appropriate constants, action creators, and reducer) is finished, head over to AppContainer and when the component mounts, use `firebaseAuth.onAuthStateChanged` to dispatch your `onAuthChange` function whenever the firebase user state changes.
+ * Now create a handleAuthWithFirebase thunk inside of authentication.js which is going to first, inform our authentication state that the user is currently authenticating, second, call `getAccessToken` and then call `authWith` once we have the access token.
+ * Last step should be to dispatch our `handleAuthWithFirebase` function once we login, ie, inside of the `handleLoginFinished` function in our `SplashContainer` component.
+
+## Step 11: /NewPoll
 Now we're going to add the UI as well as the functionality to create a new poll.
 
  * Build out the UI for your New Poll view. Refer to the finished GIF above if you need inspiration.
- * Now when the user submits the new poll, persist it to Redux as well as Firebase. For
+ * Now when the user submits the new poll, persist it to Redux as well as Firebase. Refer to your schemas.js file in the previous step if you need to.
 
 ## Congrats!
 If you got through this, great job. If you're reading this and you've made it this far, be proud. This was a pretty advanced project. Take a look at my code and compare to what we did differently.

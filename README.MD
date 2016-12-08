@@ -1,4 +1,4 @@
-<img src="http://www.reactjsprogram.com/images/reactjsprogram-500.png" width="250" align="right">
+<img src="https://cloud.githubusercontent.com/assets/2933430/21000144/6e6cfa86-bcd6-11e6-950c-149059841f19.png" width="250" align="right">
 
 React.js Program's "React Native" course Curriculum
 ========
@@ -8,7 +8,7 @@ React.js Program's "React Native" course Curriculum
 ##Objective
 Build a functioning Polls app with React Native on Android and iOS.
 
-<img src="http://www.reactjsprogram.com/images/PollsPreview.gif" width="480" height="433">
+<img src="https://cloud.githubusercontent.com/assets/2933430/21000982/0b182ad2-bcdb-11e6-8005-5a71f57a0e71.gif" width="480" height="433">
 
 ## Notes
 The goal here is to give you just enough guidance for you to struggle without drowning. Note that the steps below are just suggestions. The ideal situation is you look at the completed project, then you build it. However, if you're not up for such things, feel free to follow the (vague by design) steps below. If you get stuck, all steps have coinciding branches for you to reference as a last case scenario.
@@ -79,7 +79,7 @@ Now let's build out the UI for the main way to navigate throughout our app. On i
  * At this point transitioning between tabs on iOS should be working. Now, using 'DrawerLayoutAndroid', create a Drawer layout for Android.
  * Right now your App should look like this
 
-<img src="http://www.reactjsprogram.com/images/react-native-footer-tabs.png" width="400">
+<img src="https://cloud.githubusercontent.com/assets/2933430/21000946/dfe968f8-bcda-11e6-9ac2-36c998058929.png" width="400">
 
 ## Step 8: /Navbars
 Now let's create our navbar as well as our different navbar icons that will be present depending on which view we're on.
@@ -131,7 +131,7 @@ Now we need to build out the UI for our Home view. Because we already fetched th
  * Render the list of Polls using React Native's `ListView` component.
  * Once finished, your Home view should look like this,
 
-<img src="http://www.reactjsprogram.com/images/react-native-home.png" width="400">
+<img src="https://cloud.githubusercontent.com/assets/2933430/21000947/dfea38fa-bcda-11e6-8ab5-7e9176c2cab4.png" width="400">
 
 ## 14: /YourPolls
 Now let's finished the UI for the "Your Polls" view. Again since we already have the data needed, this will mostly be UI changes.
@@ -139,12 +139,12 @@ Now let's finished the UI for the "Your Polls" view. Again since we already have
  * Build out the "Your Polls" view to generate a list of only the authenticated user's polls. You should be able to re-use the `PollPreview` component we implemented earlier.
  * Once finished, your Home view should look like this,
 
-<img src="http://www.reactjsprogram.com/images/react-native-your-polls.png" width="400">
+<img src="https://cloud.githubusercontent.com/assets/2933430/21000949/dfeee436-bcda-11e6-827b-720dd6bfa176.png" width="400">
 
 ## 15: /Poll
 Now we need to create the individual Poll view which is where we'll either be able to see the results of the poll or vote on it if we haven't already taken it. I'm going to leave this step empty on purpose to challenge you. Here's a picture of the final product. As always if you get stuck, check out my steps in the "/Poll" branch.
 
-<img src="http://www.reactjsprogram.com/images/react-native-poll.png" width="400">
+<img src="https://cloud.githubusercontent.com/assets/2933430/21000948/dfec4e7e-bcda-11e6-8928-dfa6b9628f02.png" width="400">
 
 ## 16: /DrawerHeader
 The very last step is a small one. If you'll remember when we built the UI for our Drawer on Android we left our DrawerHeader component in its most basic form. Now go ahead and update that UI to however you'd like. I prefer to show the user's name and avatar.
@@ -152,4 +152,4 @@ The very last step is a small one. If you'll remember when we built the UI for o
 ## Congrats!
 If you got through this, great job. If you're reading this and you've made it this far, be proud. This was a pretty advanced project. Take a look at my code and compare to what we did differently.
 
-<img src='http://www.reactjsprogram.com/images/tyler-mcginnis.png' width="100px" align="left"/> Suggestion or just want to say thanks? You can find me on Twitter at [@tylermcginnis33](http://twitter.com/tylermcginnis33)
+<img src='https://cloud.githubusercontent.com/assets/2933430/21000153/6e9fa846-bcd6-11e6-9e09-2e6bb868f71c.png' width="200px" align="left"/> Suggestion or just want to say thanks? You can find me on Twitter at [@tylermcginnis33](http://twitter.com/tylermcginnis33)

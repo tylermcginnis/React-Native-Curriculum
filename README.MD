@@ -3,9 +3,9 @@
 React.js Program's "React Native" course Curriculum
 ========
 
-####For more information on React.js Program, [click here](http://reactjsprogram.com)
+#### For more information on React.js Program, [click here](http://reactjsprogram.com)
 
-##Objective
+## Objective
 Build a functioning Polls app with React Native on Android and iOS.
 
 <img src="https://cloud.githubusercontent.com/assets/2933430/21000982/0b182ad2-bcdb-11e6-8005-5a71f57a0e71.gif" width="480" height="433">
@@ -13,7 +13,7 @@ Build a functioning Polls app with React Native on Android and iOS.
 ## Notes
 The goal here is to give you just enough guidance for you to struggle without drowning. Note that the steps below are just suggestions. The ideal situation is you look at the completed project, then you build it. However, if you're not up for such things, feel free to follow the (vague by design) steps below. If you get stuck, all steps have coinciding branches for you to reference as a last case scenario.
 
-##Step 0: Examine the Final Product
+## Step 0: Examine the Final Product
  * You'll be building the app in the GIF above. Get familiar with it's functionality, the different route transitions, how it differs on iOS and Android.
 
 ##Step 1: /HelloWorld
@@ -25,14 +25,14 @@ Before we dive into building the app, let's just make sure we have a Hello World
  * Have index.android.js and index.ios.js render your 'app/index.js' file
  * Verify your app works on both Android and iOS (if you're building for both platforms)
 
-##Step 2: /FacebookSDK
+## Step 2: /FacebookSDK
 We're going to use Facebook to Authenticate. Let's install the Facebook SDK into our React Native app so we can do that.
 
  * npm install --save react-native-fbsdk
  * Follow [this guide](https://medium.freecodecamp.com/installing-the-facebook-sdk-into-a-react-native-android-and-ios-app-69439bd97a99#.1njr8v2ye)
  * Add a LoginButton from react-native-fbsdk to your index.js view to verify you properly installed the SDK.
 
-##Step 3: /FirstRoute
+## Step 3: /FirstRoute
 Let's have Navigator control our routes now.
 
  * Create a Splash view which just renders "Splash" for now.

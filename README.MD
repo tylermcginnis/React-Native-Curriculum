@@ -1,9 +1,9 @@
-<img src="https://cloud.githubusercontent.com/assets/2933430/21000144/6e6cfa86-bcd6-11e6-950c-149059841f19.png" width="250" align="right">
+<img src="https://tylermcginnis.com/tylermcginnis_glasses-300.png" width="300" align="right">
 
-React.js Program's "React Native" course Curriculum
+TylerMcginnis.com's "React Native" course Curriculum
 ========
 
-#### For more information on React.js Program, [click here](http://reactjsprogram.com)
+#### For more information, [click here](https://tylermcginnis.com)
 
 ## Objective
 Build a functioning Polls app with React Native on Android and iOS.
@@ -152,4 +152,4 @@ The very last step is a small one. If you'll remember when we built the UI for o
 ## Congrats!
 If you got through this, great job. If you're reading this and you've made it this far, be proud. This was a pretty advanced project. Take a look at my code and compare to what we did differently.
 
-<img src='https://cloud.githubusercontent.com/assets/2933430/21000153/6e9fa846-bcd6-11e6-9e09-2e6bb868f71c.png' width="200px" align="left"/> Suggestion or just want to say thanks? You can find me on Twitter at [@tylermcginnis33](http://twitter.com/tylermcginnis33)
+[Tyler](http://twitter.com/tylermcginnis33)
